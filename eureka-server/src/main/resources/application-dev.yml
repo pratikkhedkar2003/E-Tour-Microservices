@@ -1,0 +1,11 @@
+#file: noinspection undefined
+# profile
+ACTIVE_PROFILE: dev
+
+# server
+CONTAINER_PORT: 8761
+
+# eureka
+EUREKA_HOSTNAME: localhost
+EUREKA_USERNAME: admin
+EUREKA_PASSWORD: letmein

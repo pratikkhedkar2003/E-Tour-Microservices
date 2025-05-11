@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFA - Authorization Server</title>
+    <link th:href="@{/css/login-page.css}" rel="stylesheet">
+</head>
+<body>
+<div class="login-container">
+    <div class="login-card">
+        <div class="logo">
+            <img th:src="@{/images/logo.svg}" alt="Company Logo">
+        </div>
+
+        <form th:action="@{/mfa}" method="post" class="login-form" id="mfaForm" novalidate>
+            <!-- Server-side errors -->
+            <div th:if="${param.error}" class="alert error">
+                Invalid verification code. Please try again.
+            </div>
+            <div th:if="${param.logout}" class="alert success">
+                You have been logged out
+            </div>
+
+            <!-- MFA Code Input -->
+            <div class="form-group">
+                <label for="code">Enter verification code for <span th:text="${email}"></span></label>
+                <input type="text"
+                       id="code"
+                       name="code"
+                       placeholder="123456"
+                       required
+                       minlength="6"
+                       aria-describedby="codeError">
+                <div class="form-error" id="codeError"></div>
+            </div>
+
+            <button type="submit" class="btn-login">Verify Code</button>
+
+            <div class="additional-options">
+                <a href="#" class="forgot-password">Trouble receiving the code?</a>
+                <div class="register-link">
+                    <a href="/login">Back to Login</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('mfaForm').addEventListener('submit', function(event) {
+        clearErrors();
+        const codeValid = validateCode();
+
+        if (!codeValid) {
+            event.preventDefault();
+        }
+    });
+
+    function validateCode() {
+        const codeField = document.getElementById('code');
+        const errorElement = document.getElementById('codeError');
+        const code = codeField.value.trim();
+
+        if (code === '') {
+            showError(codeField, errorElement, 'Verification code is required');
+            return false;
+        }
+
+        if (code.length < 6) {
+            showError(codeField, errorElement, 'Code must be at least 6 digits');
+            return false;
+        }
+
+        return true;
+    }
+
+    function showError(field, errorElement, message) {
+        field.classList.add('invalid');
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+    }
+
+    function clearErrors() {
+        document.querySelectorAll('.form-error').forEach(el => {
+            el.textContent = '';
+            el.style.display = 'none';
+        });
+        document.querySelectorAll('input').forEach(field =>
+            field.classList.remove('invalid'));
+    }
+</script>
+</body>
+</html>

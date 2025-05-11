@@ -1,0 +1,24 @@
+#file: noinspection undefined
+# profile
+ACTIVE_PROFILE: prod
+
+# server
+CONTAINER_PORT: 8081
+
+# database
+MYSQL_USERNAME:
+MYSQL_PASSWORD:
+MYSQL_DATABASE:
+MYSQL_HOST:
+MYSQL_PORT:
+
+# eureka
+EUREKA_USERNAME:
+EUREKA_PASSWORD:
+
+# keys
+PRIVATE_KEY:
+PUBLIC_KEY:
+
+# UI App
+UI_APP_URL: http://localhost:5173/

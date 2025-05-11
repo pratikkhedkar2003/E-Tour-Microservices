@@ -1,0 +1,20 @@
+#file: noinspection undefined
+# profile
+ACTIVE_PROFILE: dev
+
+# server
+CONTAINER_PORT: 8080
+
+# eureka
+EUREKA_USERNAME: admin
+EUREKA_PASSWORD: letmein
+
+# security oauth2 resourceserver jwt
+JWK_SET_URI: http://localhost:8081/oauth2/jwks
+JWT_ISSUER_URI: http://localhost:8081
+
+# services uri
+AUTHORIZATION_SERVER_URI: http://localhost:8081
+# http://AUTHORIZATION-SERVER
+
+

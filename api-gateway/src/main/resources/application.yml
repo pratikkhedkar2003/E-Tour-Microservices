@@ -1,0 +1,43 @@
+#file: noinspection undefined
+spring:
+  application:
+    name: api-gateway
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
+  output:
+    ansi:
+      enabled: ALWAYS
+  cloud:
+    discovery:
+      enabled: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI}
+          issuer-uri: ${JWT_ISSUER_URI}
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_USERNAME}:${EUREKA_PASSWORD}@localhost:8761/eureka/
+
+services:
+  uri:
+    authorization-server-uri: ${AUTHORIZATION_SERVER_URI}
+
+server:
+  port: ${CONTAINER_PORT:8080}
+  error:
+    whitelabel:
+      enabled: false
+
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.security: TRACE
+    org.springframework.security.oauth2: TRACE
+

@@ -1,0 +1,24 @@
+#file: noinspection undefined
+# profile
+ACTIVE_PROFILE: dev
+
+# server
+CONTAINER_PORT: 8081
+
+# database
+MYSQL_USERNAME: root
+MYSQL_PASSWORD: Pratik2003@
+MYSQL_DATABASE: etour_micro_db
+MYSQL_HOST: localhost
+MYSQL_PORT: 3306
+
+# eureka
+EUREKA_USERNAME: admin
+EUREKA_PASSWORD: letmein
+
+# keys
+PRIVATE_KEY: "private.key"
+PUBLIC_KEY: "public.key"
+
+# UI App
+UI_APP_URL: http://localhost:5173/

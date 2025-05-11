@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125">
+    <defs>
+        <!-- Gradient for the shield -->
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#4F46E5; stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#2563EB; stop-opacity:1"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Shield Shape -->
+    <path fill="url(#gradient)" stroke="#1E3A8A" stroke-width="3"
+          d="M50 5L10 25v35c0 25 30 45 40 50 10-5 40-25 40-50V25L50 5z" />
+
+    <!-- Lock Icon -->
+    <g transform="translate(30, 35)">
+        <rect x="10" y="15" width="20" height="20" rx="5" ry="5" fill="#fff"/>
+        <path fill="none" stroke="#fff" stroke-width="3" d="M15 15v-5a10 10 0 0120 0v5"/>
+        <circle cx="20" cy="25" r="2.5" fill="#2563EB"/>
+    </g>
+
+    <!-- Keyhole -->
+    <circle cx="50" cy="68" r="3" fill="#1E3A8A"/>
+    <rect x="48.5" y="70" width="3" height="5" fill="#1E3A8A" rx="1.5"/>
+
+    <!-- Text -->
+    <text font-family="Arial, sans-serif" font-weight="bold" font-size="14" text-anchor="middle" fill="#2563eb" x="50" y="125">Auth Server</text>
+</svg>

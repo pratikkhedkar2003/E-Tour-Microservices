@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: eureka-server
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
+  output:
+    ansi:
+      enabled: ALWAYS
+
+  security:
+    user:
+      name: ${EUREKA_USERNAME}
+      password: ${EUREKA_PASSWORD}
+
+eureka:
+  instance:
+    hostname: ${EUREKA_HOSTNAME:localhost}
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${EUREKA_USERNAME}:${EUREKA_PASSWORD}@${EUREKA_HOSTNAME}:${CONTAINER_PORT:8761}/eureka/
+  server:
+    enable-self-preservation: false
+
+server:
+  port: ${CONTAINER_PORT:8761}
+  error:
+    whitelabel:
+      enabled: false

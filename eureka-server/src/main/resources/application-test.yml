@@ -1,0 +1,11 @@
+#file: noinspection undefined
+# profile
+ACTIVE_PROFILE: test
+
+# server
+CONTAINER_PORT: 8761
+
+# eureka
+EUREKA_HOSTNAME:
+EUREKA_USERNAME:
+EUREKA_PASSWORD:

@@ -1,0 +1,17 @@
+#file: noinspection undefined
+# profile
+ACTIVE_PROFILE: test
+
+# server
+CONTAINER_PORT: 8080
+
+# eureka
+EUREKA_USERNAME:
+EUREKA_PASSWORD:
+
+# security oauth2 resourceserver jwt
+JWK_SET_URI:
+JWT_ISSUER_URI:
+
+# services uri
+AUTHORIZATION_SERVER_URI:
